@@ -1,5 +1,6 @@
 package com.bignerdranch.android.newcrimeintent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -44,7 +44,7 @@ public class CrimeListFragment extends Fragment {
         mCrimeRecyclerView.setAdapter(mCrimeAdapter);
     }
 
-    public class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView mTitleTextView;
         private TextView mDateTextView;
@@ -70,7 +70,9 @@ public class CrimeListFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(getActivity(),mCrime.getTitle()+"선택됨", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(),mCrime.getTitle()+"선택됨", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(getActivity(), CrimeActivity.class);
+            startActivity(CrimeActivity.newIntent(getActivity(), mCrime.getId()));
         }
     }
 
