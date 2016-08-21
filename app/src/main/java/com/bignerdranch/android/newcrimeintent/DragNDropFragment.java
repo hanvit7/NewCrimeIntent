@@ -25,6 +25,14 @@ import java.util.List;
  */
 public class DragNDropFragment extends Fragment {
 
+    public static DragNDropFragment newInstance() {
+        Bundle args = new Bundle();
+
+        DragNDropFragment fragment = new DragNDropFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,6 +61,7 @@ public class DragNDropFragment extends Fragment {
                 myAdapter.mItems.add(addImageItem);
                 MyItem addEditTextItem= new MyItem(myAdapter.getItemCount(), null, MyItem.TYPE_TEXT);
                 myAdapter.mItems.add(addEditTextItem);
+                myAdapter.notifyDataSetChanged();
             }
         });
 
