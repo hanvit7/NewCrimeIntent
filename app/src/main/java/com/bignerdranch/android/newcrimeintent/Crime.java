@@ -12,12 +12,26 @@ public class Crime {
     private String mTitle;
     private Date mDate;
     private boolean mSolved;
+    private String mSuspect;
 
-    public Crime() {
-        mId = UUID.randomUUID();
-        mDate = new Date();
+    public String getSuspect() {
+        return mSuspect;
     }
 
+    public void setSuspect(String suspect) {
+        mSuspect = suspect;
+    }
+
+    public Crime() {
+        this(UUID.randomUUID());
+//        mId = UUID.randomUUID();
+//        mDate = new Date();
+    }
+
+    public Crime(UUID id){
+        mId = id;
+        mDate = new Date();
+    }
     public Date getDate() {
         return mDate;
     }
